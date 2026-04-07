@@ -1,13 +1,20 @@
+/* ═══════════════════════════════════════════
+   BLOWOUT STUDIO FRYZUR — STYLES
+   White theme rewrite
+═══════════════════════════════════════════ */
+
 :root {
+    --bg: #ffffff;
+    --bg-alt: #faf9f7;
+    --surface: #eeecea;
     --black: #0a0a0a;
-    --off-black: #111111;
-    --charcoal: #1c1c1c;
-    --mid: #4a4a4a;
-    --silver: #a8a8a8;
-    --light: #e8e8e8;
-    --off-white: #f5f5f3;
+    --text: #0f0f0f;
+    --text-mid: #585858;
+    --text-muted: #9a9a9a;
+    --border: rgba(0, 0, 0, 0.08);
+    --accent: #c8a87a;
+    --accent-dim: rgba(200, 168, 122, 0.12);
     --white: #ffffff;
-    --accent: #c8b89a;
     --T: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -26,29 +33,32 @@ html {
 
 body {
     font-family: "EB Garamond", serif;
-    background: var(--black);
-    color: var(--off-white);
+    background: var(--bg);
+    color: var(--text);
     overflow-x: hidden;
     cursor:
-        url("images/scissors.svg") 10 10,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='22' height='22'%3E%3Ccircle cx='6' cy='6.5' r='2.8' fill='none' stroke='%23333' stroke-width='1.4'/%3E%3Ccircle cx='6' cy='17.5' r='2.8' fill='none' stroke='%23333' stroke-width='1.4'/%3E%3Cline x1='8.5' y1='8.5' x2='21' y2='4' stroke='%23333' stroke-width='1.4' stroke-linecap='round'/%3E%3Cline x1='8.5' y1='15.5' x2='21' y2='20' stroke='%23333' stroke-width='1.4' stroke-linecap='round'/%3E%3Cline x1='8.5' y1='8.5' x2='14.5' y2='11.5' stroke='%23333' stroke-width='1.4' stroke-linecap='round'/%3E%3Cline x1='8.5' y1='15.5' x2='14.5' y2='12.5' stroke='%23333' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E")
+            10 10,
         crosshair;
 }
 
+/* ─── CURSOR ─────────────────────────────── */
 .cursor {
     position: fixed;
     width: 6px;
     height: 6px;
-    background: transparent;
+    background: var(--text);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
+    opacity: 0.5;
 }
 .cursor-ring {
     position: fixed;
     width: 36px;
     height: 36px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.22);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
@@ -61,9 +71,10 @@ body {
 .cursor-ring.active {
     width: 56px;
     height: 56px;
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(0, 0, 0, 0.35);
 }
 
+/* ─── NAV ─────────────────────────────────── */
 nav {
     position: fixed;
     top: 0;
@@ -76,33 +87,28 @@ nav {
     padding: 18px 48px;
     transition:
         background 0.4s,
-        padding 0.4s;
+        padding 0.4s,
+        box-shadow 0.4s;
 }
 nav.scrolled {
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.05);
     padding: 12px 48px;
 }
 
 .nav-logo-wrap {
-    width: 42px;
-    height: 54px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--white);
-    border: 1.5px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+    width: 80px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-shrink: 0;
     opacity: 0;
     animation: fadeUp 0.8s 0.2s var(--T) forwards;
-    flex-shrink: 0;
 }
 .nav-logo-wrap img {
-    width: 78%;
-    height: 78%;
+    width: 100%;
+    height: auto;
     object-fit: contain;
 }
 
@@ -116,7 +122,7 @@ nav.scrolled {
     font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
     padding: 4px 16px;
     display: block;
@@ -150,11 +156,11 @@ nav.scrolled {
     left: 16px;
     width: 0;
     height: 1px;
-    background: var(--white);
+    background: var(--text);
     transition: width 0.4s var(--T);
 }
 .nav-links a:hover {
-    color: var(--white);
+    color: var(--text);
 }
 .nav-links a:hover::after {
     width: calc(100% - 32px);
@@ -173,7 +179,7 @@ nav.scrolled {
     display: block;
     width: 22px;
     height: 1px;
-    background: var(--white);
+    background: var(--text);
     transition: all 0.3s;
 }
 .nav-burger.open span:nth-child(1) {
@@ -186,6 +192,7 @@ nav.scrolled {
     transform: rotate(-45deg) translate(4px, -4px);
 }
 
+/* ─── HERO ────────────────────────────────── */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -193,16 +200,14 @@ nav.scrolled {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: var(--black);
+    background: var(--bg-alt);
 }
-
 .hero-canvas {
     position: absolute;
     inset: 0;
     pointer-events: none;
     overflow: hidden;
 }
-
 .hero-cut-scene {
     position: absolute;
     inset: 0;
@@ -211,14 +216,13 @@ nav.scrolled {
     pointer-events: none;
     z-index: 1;
 }
-
 .wind-strand {
     position: absolute;
     height: 1px;
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.05),
+        rgba(0, 0, 0, 0.06),
         transparent
     );
     border-radius: 1px;
@@ -240,43 +244,13 @@ nav.scrolled {
         opacity: 0;
     }
 }
-
 @keyframes hairFall {
     0% {
         transform: translateY(0) rotate(0deg);
-        opacity: 0.7;
+        opacity: 0.5;
     }
     100% {
         transform: translateY(160px) rotate(35deg);
-        opacity: 0;
-    }
-}
-@keyframes scissorSnip {
-    0%,
-    100% {
-        transform: rotate(0deg);
-    }
-    40% {
-        transform: rotate(-18deg);
-    }
-    60% {
-        transform: rotate(-18deg);
-    }
-    80% {
-        transform: rotate(0deg);
-    }
-}
-@keyframes scissorTravel {
-    0% {
-        opacity: 0;
-    }
-    5% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
         opacity: 0;
     }
 }
@@ -290,41 +264,24 @@ nav.scrolled {
     text-align: center;
     padding: 140px 40px 100px;
 }
-
 .hero-badge {
     margin-bottom: 48px;
     opacity: 0;
     animation: fadeIn 1.2s 0.5s var(--T) forwards;
 }
-
-.hero-badge-oval {
-    width: 180px;
-    height: 224px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--white);
-    border: 1.5px solid rgba(255, 255, 255, 0.14);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-        0 0 100px rgba(255, 255, 255, 0.06),
-        0 30px 90px rgba(0, 0, 0, 0.8);
+.hero-badge img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
     animation: floatBadge 7s ease-in-out infinite;
 }
-.hero-badge-oval img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-}
-
 @keyframes floatBadge {
     0%,
     100% {
         transform: translateY(0) rotate(-0.3deg);
     }
     50% {
-        transform: translateY(-12px) rotate(0.3deg);
+        transform: translateY(-10px) rotate(0.3deg);
     }
 }
 
@@ -335,7 +292,7 @@ nav.scrolled {
     line-height: 0.88;
     letter-spacing: -0.02em;
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--text);
     opacity: 0;
     animation: fadeUp 1s 0.8s var(--T) forwards;
 }
@@ -343,22 +300,20 @@ nav.scrolled {
     display: block;
     font-style: italic;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.3);
     font-size: 0.55em;
     letter-spacing: 0.1em;
 }
-
 .hero-sub {
     margin-top: 20px;
     font-family: "Cormorant Garamond", serif;
     font-size: 12px;
     letter-spacing: 0.42em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.35);
     opacity: 0;
     animation: fadeUp 1s 1.1s var(--T) forwards;
 }
-
 .hero-year-tag {
     position: absolute;
     right: 48px;
@@ -366,13 +321,12 @@ nav.scrolled {
     font-family: "Cormorant Garamond", serif;
     font-size: 10px;
     letter-spacing: 0.35em;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     writing-mode: vertical-rl;
     opacity: 0;
     animation: fadeIn 1s 2s forwards;
 }
-
 .hero-scroll {
     position: absolute;
     bottom: 36px;
@@ -390,16 +344,12 @@ nav.scrolled {
     font-size: 10px;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.28);
+    color: rgba(0, 0, 0, 0.28);
 }
 .scroll-line {
     width: 1px;
     height: 46px;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
     animation: scrollPulse 2.2s ease-in-out infinite;
 }
 @keyframes scrollPulse {
@@ -412,12 +362,13 @@ nav.scrolled {
     }
 }
 
+/* ─── MARQUEE ─────────────────────────────── */
 .marquee-section {
     overflow: hidden;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     padding: 14px 0;
-    background: var(--off-black);
+    background: var(--surface);
 }
 .marquee-track {
     display: flex;
@@ -436,13 +387,13 @@ nav.scrolled {
     font-size: 12px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.35);
     flex-shrink: 0;
 }
 .marquee-dot {
     width: 3px;
     height: 3px;
-    background: rgba(200, 184, 154, 0.6);
+    background: rgba(200, 168, 122, 0.8);
     border-radius: 50%;
     flex-shrink: 0;
 }
@@ -455,6 +406,7 @@ nav.scrolled {
     }
 }
 
+/* ─── SECTION LABELS & REVEAL ─────────────── */
 .section-label {
     font-family: "Cormorant Garamond", serif;
     font-size: 10px;
@@ -473,7 +425,6 @@ nav.scrolled {
     background: currentColor;
     flex-shrink: 0;
 }
-
 .reveal {
     opacity: 0;
     transform: translateY(32px);
@@ -498,6 +449,7 @@ nav.scrolled {
     transition-delay: 0.4s;
 }
 
+/* ─── O NAS ───────────────────────────────── */
 #o-nas {
     padding: 140px 80px;
     display: grid;
@@ -507,7 +459,6 @@ nav.scrolled {
     max-width: 1400px;
     margin: 0 auto;
 }
-
 .about-visual {
     position: relative;
 }
@@ -520,7 +471,7 @@ nav.scrolled {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(1) contrast(1.1);
+    filter: grayscale(0.2) contrast(1.05);
     transition: transform 0.8s var(--T);
 }
 .about-img-frame:hover img {
@@ -530,20 +481,24 @@ nav.scrolled {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.5));
+    background: linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(0, 0, 0, 0.15)
+    );
 }
 .about-img-frame::before {
     content: "";
     position: absolute;
     inset: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 1;
     pointer-events: none;
 }
 .about-img-placeholder {
     width: 100%;
     aspect-ratio: 3/4;
-    background: var(--charcoal);
+    background: var(--surface);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -555,14 +510,14 @@ nav.scrolled {
     content: "";
     position: absolute;
     inset: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 .about-img-placeholder span {
     font-family: "Cormorant Garamond", serif;
     font-size: 11px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(0, 0, 0, 0.25);
 }
 .about-floating-label {
     position: absolute;
@@ -576,23 +531,22 @@ nav.scrolled {
     writing-mode: vertical-rl;
     opacity: 0.5;
 }
-
 .about-text h2 {
     font-family: "Bodoni Moda", serif;
     font-size: clamp(30px, 3.2vw, 52px);
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 28px;
-    color: var(--white);
+    color: var(--text);
 }
 .about-text h2 em {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.3);
     font-style: italic;
 }
 .about-text p {
     font-size: 17px;
     line-height: 1.9;
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--text-mid);
     margin-bottom: 20px;
 }
 .about-signature {
@@ -600,7 +554,7 @@ nav.scrolled {
     font-style: italic;
     font-size: 18px;
     color: var(--accent);
-    opacity: 0.8;
+    opacity: 0.9;
     margin-bottom: 36px;
 }
 .about-stats {
@@ -608,7 +562,7 @@ nav.scrolled {
     gap: 0;
     margin-top: 44px;
     padding-top: 36px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     align-items: flex-end;
 }
 .stat {
@@ -616,7 +570,7 @@ nav.scrolled {
     flex-direction: column;
     flex: 1;
     padding-right: 24px;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
     margin-right: 24px;
 }
 .stat:last-child {
@@ -629,20 +583,21 @@ nav.scrolled {
     font-size: 10px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.3);
     margin-bottom: 4px;
 }
 .stat-num {
     font-family: "Bodoni Moda", serif;
     font-size: clamp(24px, 4vw, 38px);
     font-weight: 900;
-    color: var(--white);
+    color: var(--text);
     line-height: 1;
 }
 
+/* ─── GALERIA ─────────────────────────────── */
 #galeria {
     padding: 120px 80px;
-    background: var(--off-black);
+    background: var(--bg-alt);
 }
 #galeria > .gallery-inner {
     max-width: 1200px;
@@ -652,19 +607,18 @@ nav.scrolled {
     font-family: "Bodoni Moda", serif;
     font-size: clamp(32px, 4vw, 56px);
     font-weight: 700;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 56px;
     line-height: 1.1;
 }
 #galeria h2 em {
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.3);
     font-style: italic;
 }
-
 .gallery-tabs {
     display: flex;
     gap: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     margin-bottom: 48px;
     overflow-x: auto;
 }
@@ -673,7 +627,7 @@ nav.scrolled {
     font-size: 12px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.35);
     padding: 12px 28px 14px;
     background: none;
     border: none;
@@ -689,17 +643,17 @@ nav.scrolled {
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--white);
+    background: var(--text);
     transition: width 0.4s var(--T);
 }
 .gallery-tab.active {
-    color: var(--white);
+    color: var(--text);
 }
 .gallery-tab.active::after {
     width: 100%;
 }
 .gallery-tab:hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .gallery-panel {
@@ -721,26 +675,26 @@ nav.scrolled {
     position: relative;
     overflow: hidden;
     aspect-ratio: 3/4;
-    background: var(--charcoal);
+    background: var(--surface);
     cursor: none;
 }
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(1) contrast(1.05);
+    filter: grayscale(0.15) contrast(1.02);
     transition:
         transform 0.7s var(--T),
         filter 0.5s;
 }
 .gallery-item:hover img {
     transform: scale(1.06);
-    filter: grayscale(0.3) contrast(1.05);
+    filter: grayscale(0) contrast(1.02);
 }
 .gallery-item-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -753,38 +707,48 @@ nav.scrolled {
 .gallery-zoom {
     font-family: "Cormorant Garamond", serif;
     font-size: 28px;
-    color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     width: 48px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .gallery-placeholder {
     width: 100%;
     aspect-ratio: 3/4;
-    background: var(--charcoal);
+    background: var(--surface);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    border: 1px dashed rgba(255, 255, 255, 0.08);
+    border: 1px dashed rgba(0, 0, 0, 0.1);
 }
 .gallery-placeholder span {
     font-family: "Cormorant Garamond", serif;
     font-size: 10px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.18);
+    color: rgba(0, 0, 0, 0.2);
 }
 .gallery-placeholder .ph-icon {
     font-size: 24px;
-    opacity: 0.12;
+    opacity: 0.15;
+}
+.gallery-empty {
+    grid-column: 1/-1;
+    padding: 60px 0;
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
 }
 
+/* ─── CENNIK ──────────────────────────────── */
 #cennik {
     padding: 120px 80px;
     max-width: 1000px;
@@ -794,15 +758,14 @@ nav.scrolled {
     font-family: "Bodoni Moda", serif;
     font-size: clamp(32px, 4vw, 56px);
     font-weight: 700;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 56px;
     line-height: 1.1;
 }
 #cennik h2 em {
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.3);
     font-style: italic;
 }
-
 .price-category {
     margin-bottom: 56px;
 }
@@ -814,7 +777,7 @@ nav.scrolled {
     color: var(--accent);
     margin-bottom: 20px;
     padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     display: flex;
     align-items: center;
     gap: 14px;
@@ -830,7 +793,7 @@ nav.scrolled {
     justify-content: space-between;
     align-items: baseline;
     padding: 14px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 .price-row:last-child {
     border-bottom: none;
@@ -838,24 +801,25 @@ nav.scrolled {
 .price-name {
     font-family: "EB Garamond", serif;
     font-size: 17px;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(0, 0, 0, 0.75);
 }
 .price-dots {
     flex: 1;
     margin: 0 16px;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.12);
 }
 .price-val {
     font-family: "Bodoni Moda", serif;
     font-size: 18px;
     font-weight: 700;
-    color: var(--white);
+    color: var(--text);
     white-space: nowrap;
 }
 
+/* ─── MARKI ───────────────────────────────── */
 #marki {
     padding: 120px 80px;
-    background: var(--off-black);
+    background: var(--bg-alt);
     position: relative;
     overflow: hidden;
 }
@@ -865,7 +829,7 @@ nav.scrolled {
     inset: 0;
     background: radial-gradient(
         ellipse at 50% 0%,
-        rgba(255, 255, 255, 0.02) 0%,
+        rgba(0, 0, 0, 0.02) 0%,
         transparent 70%
     );
 }
@@ -878,15 +842,14 @@ nav.scrolled {
     font-family: "Bodoni Moda", serif;
     font-size: clamp(28px, 3vw, 46px);
     font-weight: 700;
-    color: var(--white);
+    color: var(--text);
     margin-bottom: 64px;
     line-height: 1.1;
 }
 #marki h2 em {
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.3);
     font-style: italic;
 }
-
 .brands-row {
     display: flex;
     gap: 40px;
@@ -897,7 +860,7 @@ nav.scrolled {
 .brand-logo-slot {
     width: 200px;
     height: 120px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -906,16 +869,87 @@ nav.scrolled {
     transition: border-color 0.3s;
 }
 .brand-logo-slot:hover {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(0, 0, 0, 0.25);
 }
 .brand-coming {
     font-family: "Cormorant Garamond", serif;
     font-size: 10px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.15);
+    color: rgba(0, 0, 0, 0.15);
 }
 
+/* ─── HAIR GAME (stays dark intentionally) ── */
+#hair-game {
+    padding: 120px 80px;
+    background: var(--black);
+}
+#hair-game .section-label {
+    color: var(--accent);
+}
+#hair-game h2 {
+    font-family: "Bodoni Moda", serif;
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 700;
+    color: #f5f5f3;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+#hair-game h2 em {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+}
+#hair-game .game-intro {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 56px;
+    max-width: 560px;
+    line-height: 1.8;
+}
+.game-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 720px;
+}
+.game-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    transition:
+        border-color 0.3s,
+        background 0.3s;
+}
+.game-card:hover {
+    border-color: rgba(200, 168, 122, 0.4);
+    background: rgba(200, 168, 122, 0.06);
+}
+.game-card-icon {
+    font-size: 32px;
+}
+.game-card-title {
+    font-family: "Bodoni Moda", serif;
+    font-size: 20px;
+    color: #f5f5f3;
+}
+.game-card-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.38);
+    line-height: 1.6;
+}
+.game-card-cta {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(200, 168, 122, 0.7);
+    margin-top: 8px;
+}
+
+/* ─── LOKALIZACJA ─────────────────────────── */
 #lokalizacja {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -923,7 +957,7 @@ nav.scrolled {
 }
 .location-panel {
     padding: 100px 80px;
-    background: var(--off-black);
+    background: var(--bg);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -933,7 +967,7 @@ nav.scrolled {
     font-size: clamp(36px, 5vw, 72px);
     font-weight: 900;
     line-height: 0.9;
-    color: var(--white);
+    color: var(--text);
     margin: 20px 0 8px;
     letter-spacing: -0.02em;
 }
@@ -941,7 +975,7 @@ nav.scrolled {
     font-family: "Cormorant Garamond", serif;
     font-size: 18px;
     letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.4);
     margin-bottom: 48px;
 }
 .location-detail {
@@ -960,16 +994,15 @@ nav.scrolled {
 .loc-block p,
 .loc-block a {
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
     display: block;
     line-height: 1.7;
     transition: color 0.3s;
 }
 .loc-block a:hover {
-    color: var(--white);
+    color: var(--text);
 }
-
 .map-container {
     position: relative;
 }
@@ -977,16 +1010,17 @@ nav.scrolled {
     width: 100%;
     height: 100%;
     border: 0;
-    filter: grayscale(1) invert(1) contrast(0.85);
+    filter: grayscale(0.8) contrast(0.9);
     transition: filter 0.4s;
 }
 .map-container:hover iframe {
-    filter: grayscale(0.5) invert(1) contrast(0.9);
+    filter: grayscale(0.3) contrast(0.95);
 }
 
+/* ─── FOOTER ──────────────────────────────── */
 footer {
-    background: var(--black);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--bg-alt);
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
     padding: 80px 80px 48px;
 }
 .footer-inner {
@@ -1001,38 +1035,28 @@ footer {
     flex-direction: column;
     gap: 20px;
 }
-
-/* PILL LOGO (Replaced Diamond clip-path) */
-.footer-logo-oval {
-    width: 48px;
-    height: 62px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--white);
-    border: 1.5px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+.footer-logo-wrap {
+    width: 72px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
 }
-.footer-logo-oval img {
-    width: 78%;
-    height: 78%;
+.footer-logo-wrap img {
+    width: 100%;
+    height: auto;
     object-fit: contain;
 }
 .footer-brand-text {
     font-family: "Bodoni Moda", serif;
     font-style: italic;
     font-size: 20px;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.5);
 }
 .footer-col-title {
     font-family: "Cormorant Garamond", serif;
     font-size: 10px;
     letter-spacing: 0.38em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.3);
     margin-bottom: 24px;
 }
 .footer-col ul {
@@ -1042,25 +1066,25 @@ footer {
     margin-bottom: 14px;
 }
 .footer-col a {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.5);
     text-decoration: none;
     font-size: 15px;
     transition: color 0.3s;
 }
 .footer-col a:hover {
-    color: var(--white);
+    color: var(--text);
 }
 .footer-contact-line {
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.5);
     margin-bottom: 10px;
     line-height: 1.6;
 }
 .footer-bottom {
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
     margin-top: 60px;
     padding-top: 32px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1069,14 +1093,15 @@ footer {
     font-family: "Cormorant Garamond", serif;
     font-size: 11px;
     letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(0, 0, 0, 0.2);
 }
 
+/* ─── LIGHTBOX ────────────────────────────── */
 .lightbox {
     position: fixed;
     inset: 0;
     z-index: 200;
-    background: rgba(0, 0, 0, 0.96);
+    background: rgba(255, 255, 255, 0.97);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1095,6 +1120,7 @@ footer {
     object-fit: contain;
     transform: scale(0.9);
     transition: transform 0.5s var(--T);
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
 }
 .lightbox.open img {
     transform: scale(1);
@@ -1106,9 +1132,9 @@ footer {
     width: 42px;
     height: 42px;
     background: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 50%;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.5);
     font-size: 16px;
     cursor: none;
     display: flex;
@@ -1117,11 +1143,12 @@ footer {
     transition: all 0.3s;
 }
 .lightbox-close:hover {
-    border-color: var(--white);
-    color: var(--white);
+    border-color: var(--text);
+    color: var(--text);
     transform: rotate(90deg);
 }
 
+/* ─── ANIMATIONS ──────────────────────────── */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -1141,6 +1168,7 @@ footer {
     }
 }
 
+/* ─── RESPONSIVE ──────────────────────────── */
 @media (max-width: 900px) {
     nav {
         padding: 12px 20px;
@@ -1148,6 +1176,7 @@ footer {
     nav.scrolled {
         padding: 10px 20px;
     }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -1155,10 +1184,11 @@ footer {
         left: 0;
         right: 0;
         flex-direction: column;
-        background: rgba(10, 10, 10, 0.98);
+        background: rgba(255, 255, 255, 0.99);
         backdrop-filter: blur(14px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
         padding: 14px 0;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
     .nav-links.open {
         display: flex;
@@ -1184,6 +1214,7 @@ footer {
     .gallery-grid-3 {
         grid-template-columns: repeat(2, 1fr);
     }
+
     #cennik,
     #marki,
     #hair-game {
@@ -1196,12 +1227,20 @@ footer {
         width: 140px;
         height: 84px;
     }
+    .game-cards {
+        grid-template-columns: 1fr;
+    }
+
     #lokalizacja {
         grid-template-columns: 1fr;
     }
     .location-panel {
         padding: 60px 28px;
     }
+    .map-container {
+        min-height: 300px;
+    }
+
     footer {
         padding: 60px 28px 36px;
     }
@@ -1210,7 +1249,7 @@ footer {
         gap: 40px;
     }
     .footer-brand-col {
-        grid-column: 1 / -1;
+        grid-column: 1/-1;
     }
     .footer-bottom {
         flex-direction: column;

@@ -24,7 +24,6 @@
         />
         <link rel="manifest" href="public/fav/site.webmanifest" />
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -32,7 +31,9 @@
             rel="stylesheet"
         />
 
-        <!-- External Stylesheet -->
+        <!-- Gallery data (edit this file or use /admin to manage images) -->
+        <script src="gallery-data.js"></script>
+
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
@@ -70,12 +71,7 @@
 
             <div class="hero-content">
                 <div class="hero-badge">
-                    <div class="hero-badge-oval">
-                        <img
-                            src="images/blowout.png"
-                            alt="Blowout Studio Fryzur"
-                        />
-                    </div>
+                    <img src="images/blowout.png" alt="Blowout Studio Fryzur" />
                 </div>
                 <h1 class="hero-title">
                     Blowout
@@ -150,10 +146,11 @@
         <!-- O NAS -->
         <section id="o-nas">
             <div class="about-visual reveal">
+                <!-- Replace with: <div class="about-img-frame"><img src="images/blowout-interior.jpg" alt="Salon" /></div> -->
                 <div class="about-img-placeholder">
                     <span class="ph-icon">✂</span>
                     <span>Zdjęcie salonu</span>
-                    <span style="font-size: 9px; opacity: 0.6"
+                    <span style="font-size: 9px; opacity: 0.5"
                         >Zastąp: images/blowout-interior.jpg</span
                     >
                 </div>
@@ -215,102 +212,19 @@
                     </button>
                 </div>
 
-                <!-- BLONDY -->
                 <div
                     class="gallery-panel gallery-grid-4 active"
                     id="tab-blondy"
-                >
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <span class="ph-icon">☀</span><span>Blondy 01</span
-                            ><span style="font-size: 9px; opacity: 0.5"
-                                >images/blondy-01.jpg</span
-                            >
-                        </div>
-                        <div class="gallery-item-overlay">
-                            <div class="gallery-zoom">+</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <span class="ph-icon">☀</span><span>Blondy 02</span
-                            ><span style="font-size: 9px; opacity: 0.5"
-                                >images/blondy-02.jpg</span
-                            >
-                        </div>
-                        <div class="gallery-item-overlay">
-                            <div class="gallery-zoom">+</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <span class="ph-icon">☀</span><span>Blondy 03</span
-                            ><span style="font-size: 9px; opacity: 0.5"
-                                >images/blondy-03.jpg</span
-                            >
-                        </div>
-                        <div class="gallery-item-overlay">
-                            <div class="gallery-zoom">+</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <span class="ph-icon">☀</span><span>Blondy 04</span
-                            ><span style="font-size: 9px; opacity: 0.5"
-                                >images/blondy-04.jpg</span
-                            >
-                        </div>
-                        <div class="gallery-item-overlay">
-                            <div class="gallery-zoom">+</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KOLORYZACJE -->
-                <div class="gallery-panel gallery-grid-4" id="tab-koloryzacje">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <span class="ph-icon">🎨</span><span>Kolor 01</span
-                            ><span style="font-size: 9px; opacity: 0.5"
-                                >images/kolor-01.jpg</span
-                            >
-                        </div>
-                        <div class="gallery-item-overlay">
-                            <div class="gallery-zoom">+</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CIĘCIA -->
-                <div class="gallery-panel gallery-grid-3" id="tab-ciecia">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <span class="ph-icon">✂</span><span>Cięcie 01</span
-                            ><span style="font-size: 9px; opacity: 0.5"
-                                >images/ciecie-01.jpg</span
-                            >
-                        </div>
-                        <div class="gallery-item-overlay">
-                            <div class="gallery-zoom">+</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- UPIĘCIA -->
-                <div class="gallery-panel gallery-grid-4" id="tab-upiecia">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <span class="ph-icon">👑</span
-                            ><span>Upięcie 01</span
-                            ><span style="font-size: 9px; opacity: 0.5"
-                                >images/upiecie-01.jpg</span
-                            >
-                        </div>
-                        <div class="gallery-item-overlay">
-                            <div class="gallery-zoom">+</div>
-                        </div>
-                    </div>
-                </div>
+                ></div>
+                <div
+                    class="gallery-panel gallery-grid-4"
+                    id="tab-koloryzacje"
+                ></div>
+                <div class="gallery-panel gallery-grid-3" id="tab-ciecia"></div>
+                <div
+                    class="gallery-panel gallery-grid-4"
+                    id="tab-upiecia"
+                ></div>
             </div>
         </section>
 
@@ -353,7 +267,7 @@
             </div>
 
             <div class="price-category reveal reveal-delay-3">
-                <div class="price-category-title">Upięcia & Stylizacja</div>
+                <div class="price-category-title">Upięcia &amp; Stylizacja</div>
                 <div class="price-row">
                     <span class="price-name">Upięcie okolicznościowe</span>
                     <div class="price-dots"></div>
@@ -370,7 +284,7 @@
                 class="reveal reveal-delay-4"
                 style="
                     font-size: 13px;
-                    color: rgba(255, 255, 255, 0.25);
+                    color: rgba(0, 0, 0, 0.3);
                     font-style: italic;
                     margin-top: 8px;
                 "
@@ -404,157 +318,36 @@
             </div>
         </section>
 
-        <!-- HAIR GAME / KREATOR -->
-        <section
-            id="hair-game"
-            style="padding: 120px 80px; background: var(--black)"
-        >
+        <!-- HAIR GAME / KREATOR (dark band) -->
+        <section id="hair-game">
             <div style="max-width: 1000px; margin: 0 auto">
                 <div class="section-label reveal">Kreator</div>
-                <h2
-                    class="reveal reveal-delay-1"
-                    style="
-                        font-family: &quot;Bodoni Moda&quot;, serif;
-                        font-size: clamp(32px, 4vw, 56px);
-                        font-weight: 700;
-                        color: var(--off-white);
-                        margin-bottom: 16px;
-                        line-height: 1.1;
-                    "
-                >
-                    Znajdź swoją
-                    <em
-                        style="
-                            color: rgba(255, 255, 255, 0.35);
-                            font-style: italic;
-                        "
-                        >idealną</em
-                    >
-                    fryzurę
+                <h2 class="reveal reveal-delay-1">
+                    Znajdź swoją <em>idealną</em> fryzurę
                 </h2>
-                <p
-                    class="reveal reveal-delay-2"
-                    style="
-                        font-size: 17px;
-                        color: rgba(255, 255, 255, 0.45);
-                        margin-bottom: 56px;
-                        max-width: 560px;
-                        line-height: 1.8;
-                    "
-                >
+                <p class="game-intro reveal reveal-delay-2">
                     Dwa tryby gry: swobodny Kreator Fryzury oraz Kampania Stylu
                     — gdzie klientki wchodzą z problemem, a Ty je odmieniasz.
                     Nożyczki, farba, suszarka i toner w Twoich rękach.
                 </p>
-
-                <div
-                    class="reveal reveal-delay-3"
-                    style="
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                        gap: 20px;
-                        max-width: 720px;
-                    "
-                >
-                    <a
-                        href="hair-game.html"
-                        style="
-                            display: flex;
-                            flex-direction: column;
-                            gap: 14px;
-                            padding: 32px;
-                            background: rgba(255, 255, 255, 0.03);
-                            border: 1px solid rgba(255, 255, 255, 0.08);
-                            text-decoration: none;
-                            transition: all 0.3s;
-                        "
-                        onmouseenter="
-                            this.style.borderColor = 'rgba(200,169,110,.4)';
-                            this.style.background = 'rgba(200,169,110,.06)';
-                        "
-                        onmouseleave="
-                            this.style.borderColor = 'rgba(255,255,255,.08)';
-                            this.style.background = 'rgba(255,255,255,.03)';
-                        "
-                    >
-                        <span style="font-size: 32px">✂️</span>
-                        <span
-                            style="
-                                font-family: &quot;Bodoni Moda&quot;, serif;
-                                font-size: 20px;
-                                color: var(--off-white);
-                            "
-                            >Kreator Fryzury</span
-                        >
-                        <span
-                            style="
-                                font-size: 13px;
-                                color: rgba(255, 255, 255, 0.38);
-                                line-height: 1.6;
-                            "
+                <div class="game-cards reveal reveal-delay-3">
+                    <a href="hair-game.html" class="game-card">
+                        <span class="game-card-icon">✂️</span>
+                        <span class="game-card-title">Kreator Fryzury</span>
+                        <span class="game-card-desc"
                             >Swobodna eksperymentacja — 20 stylów, 20 kolorów, 8
                             efektów koloryzacji, tekstury i długość.</span
                         >
-                        <span
-                            style="
-                                font-size: 10px;
-                                letter-spacing: 0.25em;
-                                text-transform: uppercase;
-                                color: rgba(200, 169, 110, 0.7);
-                                margin-top: 8px;
-                            "
-                            >Otwórz kreator →</span
-                        >
+                        <span class="game-card-cta">Otwórz kreator →</span>
                     </a>
-                    <a
-                        href="hair-game.html?mode=campaign"
-                        style="
-                            display: flex;
-                            flex-direction: column;
-                            gap: 14px;
-                            padding: 32px;
-                            background: rgba(255, 255, 255, 0.03);
-                            border: 1px solid rgba(255, 255, 255, 0.08);
-                            text-decoration: none;
-                            transition: all 0.3s;
-                        "
-                        onmouseenter="
-                            this.style.borderColor = 'rgba(200,169,110,.4)';
-                            this.style.background = 'rgba(200,169,110,.06)';
-                        "
-                        onmouseleave="
-                            this.style.borderColor = 'rgba(255,255,255,.08)';
-                            this.style.background = 'rgba(255,255,255,.03)';
-                        "
-                    >
-                        <span style="font-size: 32px">👩‍🎨</span>
-                        <span
-                            style="
-                                font-family: &quot;Bodoni Moda&quot;, serif;
-                                font-size: 20px;
-                                color: var(--off-white);
-                            "
-                            >Kampania Stylu</span
-                        >
-                        <span
-                            style="
-                                font-size: 13px;
-                                color: rgba(255, 255, 255, 0.38);
-                                line-height: 1.6;
-                            "
+                    <a href="hair-game.html?mode=campaign" class="game-card">
+                        <span class="game-card-icon">👩‍🎨</span>
+                        <span class="game-card-title">Kampania Stylu</span>
+                        <span class="game-card-desc"
                             >Klientki wchodzą z vague'imi życzeniami. Odgadnij o
                             co chodzi i stwórz ich wymarzoną fryzurę.</span
                         >
-                        <span
-                            style="
-                                font-size: 10px;
-                                letter-spacing: 0.25em;
-                                text-transform: uppercase;
-                                color: rgba(200, 169, 110, 0.7);
-                                margin-top: 8px;
-                            "
-                            >Rozpocznij kampanię →</span
-                        >
+                        <span class="game-card-cta">Rozpocznij kampanię →</span>
                     </a>
                 </div>
             </div>
@@ -592,7 +385,8 @@
                     loading="lazy"
                     allowfullscreen
                     referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
+                >
+                </iframe>
             </div>
         </section>
 
@@ -600,7 +394,7 @@
         <footer>
             <div class="footer-inner">
                 <div class="footer-brand-col">
-                    <div class="footer-logo-oval">
+                    <div class="footer-logo-wrap">
                         <img src="images/blowout.png" alt="Blowout" />
                     </div>
                     <div class="footer-brand-text">Studio Fryzur Blowout</div>
@@ -628,23 +422,12 @@
                     <div class="footer-col-title">Kontakt</div>
                     <div class="footer-contact-line">Królowej Jadwigi 52/2</div>
                     <div class="footer-contact-line">
-                        <a
-                            href="tel:+48575007150"
-                            style="
-                                color: rgba(255, 255, 255, 0.5);
-                                text-decoration: none;
-                            "
-                            >+48 575 007 150</a
-                        >
+                        <a href="tel:+48575007150">+48 575 007 150</a>
                     </div>
                     <div class="footer-contact-line">
                         <a
                             href="https://instagram.com/mirkaczajka_hairdresser"
                             target="_blank"
-                            style="
-                                color: rgba(255, 255, 255, 0.5);
-                                text-decoration: none;
-                            "
                             >@mirkaczajka_hairdresser</a
                         >
                     </div>
@@ -665,7 +448,7 @@
         </div>
 
         <script>
-            // CURSOR
+            // ─── CURSOR ──────────────────────────────────────
             const cur = document.getElementById("cursor"),
                 ring = document.getElementById("cursorRing");
             let mx = 0,
@@ -687,7 +470,7 @@
             })();
             document
                 .querySelectorAll(
-                    "a,button,.gallery-item,.brand-logo-slot,.style-opt,.color-swatch,.campaign-opt",
+                    "a,button,.gallery-item,.brand-logo-slot,.game-card",
                 )
                 .forEach((el) => {
                     el.addEventListener("mouseenter", () =>
@@ -698,20 +481,17 @@
                     );
                 });
 
-            // NAV
+            // ─── NAV ─────────────────────────────────────────
             const navbar = document.getElementById("navbar");
-            let lastY = window.scrollY;
             window.addEventListener(
                 "scroll",
                 () => {
-                    const y = window.scrollY;
-                    navbar.classList.toggle("scrolled", y > 50);
-                    lastY = y;
+                    navbar.classList.toggle("scrolled", window.scrollY > 50);
                 },
                 { passive: true },
             );
 
-            // BURGER
+            // ─── BURGER ──────────────────────────────────────
             const burger = document.getElementById("navBurger"),
                 navLinks = document.getElementById("navLinks");
             burger.addEventListener("click", () => {
@@ -725,17 +505,160 @@
                 }),
             );
 
-            // WIND STRANDS
+            // ─── REVEAL (IntersectionObserver) ───────────────
+            // FIX: this was missing in the original — caused entire site to be invisible
+            const revealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) e.target.classList.add("visible");
+                    });
+                },
+                { threshold: 0.1 },
+            );
+            document
+                .querySelectorAll(".reveal")
+                .forEach((el) => revealObserver.observe(el));
+
+            // ─── GALLERY RENDER ──────────────────────────────
+            // Renders gallery from gallery-data.js + localStorage override (set by /admin)
+            function renderGallery() {
+                const localData = (() => {
+                    try {
+                        const raw = localStorage.getItem("blowout_gallery");
+                        return raw ? JSON.parse(raw) : null;
+                    } catch {
+                        return null;
+                    }
+                })();
+                const data =
+                    localData ||
+                    (typeof GALLERY_DATA !== "undefined" ? GALLERY_DATA : {});
+
+                const TABS = {
+                    blondy: {
+                        cols: "gallery-grid-4",
+                        icon: "☀",
+                        label: "Blondy",
+                    },
+                    koloryzacje: {
+                        cols: "gallery-grid-4",
+                        icon: "🎨",
+                        label: "Kolor",
+                    },
+                    ciecia: {
+                        cols: "gallery-grid-3",
+                        icon: "✂",
+                        label: "Cięcie",
+                    },
+                    upiecia: {
+                        cols: "gallery-grid-4",
+                        icon: "👑",
+                        label: "Upięcie",
+                    },
+                };
+
+                Object.keys(TABS).forEach((tab) => {
+                    const panel = document.getElementById("tab-" + tab);
+                    if (!panel) return;
+                    const images = data[tab] || [];
+
+                    panel.innerHTML = "";
+                    if (images.length === 0) {
+                        // Placeholder grid (3 cards)
+                        for (let i = 1; i <= 3; i++) {
+                            panel.innerHTML += `
+            <div class="gallery-item">
+              <div class="gallery-placeholder">
+                <span class="ph-icon">${TABS[tab].icon}</span>
+                <span>${TABS[tab].label} 0${i}</span>
+                <span style="font-size:9px;opacity:.5">Dodaj przez /admin</span>
+              </div>
+              <div class="gallery-item-overlay"><div class="gallery-zoom">+</div></div>
+            </div>`;
+                        }
+                        return;
+                    }
+
+                    images.forEach((img) => {
+                        const item = document.createElement("div");
+                        item.className = "gallery-item";
+                        item.innerHTML = `
+          <img src="${img.url}" alt="${img.caption || ""}" loading="lazy" />
+          <div class="gallery-item-overlay"><div class="gallery-zoom">+</div>
+          </div>`;
+                        panel.appendChild(item);
+                    });
+                });
+
+                // Re-attach lightbox after render
+                attachLightbox();
+            }
+
+            // ─── GALLERY TABS ────────────────────────────────
+            // FIX: this was missing in the original — tabs were completely broken
+            document.querySelectorAll(".gallery-tab").forEach((tab) => {
+                tab.addEventListener("click", () => {
+                    const key = tab.dataset.tab;
+                    document
+                        .querySelectorAll(".gallery-tab")
+                        .forEach((t) => t.classList.remove("active"));
+                    document
+                        .querySelectorAll(".gallery-panel")
+                        .forEach((p) => p.classList.remove("active"));
+                    tab.classList.add("active");
+                    const panel = document.getElementById("tab-" + key);
+                    if (panel) panel.classList.add("active");
+                });
+            });
+
+            // ─── LIGHTBOX ────────────────────────────────────
+            // FIX: this was missing in the original — clicking images did nothing
+            function attachLightbox() {
+                document.querySelectorAll(".gallery-item").forEach((item) => {
+                    item.addEventListener("click", () => {
+                        const img = item.querySelector("img");
+                        if (!img) return;
+                        document.getElementById("lightboxImg").src = img.src;
+                        document
+                            .getElementById("lightbox")
+                            .classList.add("open");
+                    });
+                });
+            }
+            document
+                .getElementById("lightboxClose")
+                .addEventListener("click", () => {
+                    document
+                        .getElementById("lightbox")
+                        .classList.remove("open");
+                });
+            document
+                .getElementById("lightbox")
+                .addEventListener("click", (e) => {
+                    if (e.target === e.currentTarget)
+                        e.currentTarget.classList.remove("open");
+                });
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape")
+                    document
+                        .getElementById("lightbox")
+                        .classList.remove("open");
+            });
+
+            // Run gallery render
+            renderGallery();
+
+            // ─── WIND STRANDS ────────────────────────────────
             const canvas = document.getElementById("heroCanvas");
-            for (let i = 0; i < 22; i++) {
+            for (let i = 0; i < 18; i++) {
                 const s = document.createElement("div");
                 s.className = "wind-strand";
-                const thick = Math.random() < 0.3 ? 2 : 1;
-                s.style.cssText = `top:${Math.random() * 100}%;width:${80 + Math.random() * 400}px;height:${thick}px;animation-duration:${7 + Math.random() * 14}s;animation-delay:${-Math.random() * 18}s;opacity:${0.15 + Math.random() * 0.45}`;
+                const thick = Math.random() < 0.25 ? 2 : 1;
+                s.style.cssText = `top:${Math.random() * 100}%;width:${80 + Math.random() * 350}px;height:${thick}px;animation-duration:${8 + Math.random() * 16}s;animation-delay:${-Math.random() * 18}s;opacity:${0.08 + Math.random() * 0.25}`;
                 canvas.appendChild(s);
             }
 
-            // SCISSORS CUTTING SCENE
+            // ─── SCISSORS ANIMATION ──────────────────────────
             (function buildCutScene() {
                 const ns = "http://www.w3.org/2000/svg";
                 const scene = document.getElementById("heroCutScene");
@@ -744,70 +667,47 @@
                     const g = document.createElementNS(ns, "g");
                     g.setAttribute("opacity", String(opacity));
 
-                    const b1 = document.createElementNS(ns, "g");
-                    b1.id = "blade1_" + id;
-                    const blade1 = document.createElementNS(ns, "path");
-                    blade1.setAttribute(
-                        "d",
-                        `M0,0 C4,-3 22,-4 60,-1 L60,1 C22,4 4,3 0,0Z`,
-                    );
-                    blade1.setAttribute(
-                        "fill",
-                        `rgba(255,255,255,${opacity * 1.4})`,
-                    );
-                    const ring1 = document.createElementNS(ns, "circle");
-                    ring1.setAttribute("cx", "-6");
-                    ring1.setAttribute("cy", "0");
-                    ring1.setAttribute("r", "5");
-                    ring1.setAttribute("fill", "none");
-                    ring1.setAttribute(
-                        "stroke",
-                        `rgba(255,255,255,${opacity * 1.6})`,
-                    );
-                    ring1.setAttribute("stroke-width", "1");
-                    b1.appendChild(blade1);
-                    b1.appendChild(ring1);
+                    function makeBlade(dir) {
+                        const b = document.createElementNS(ns, "g");
+                        b.id = "blade" + dir + "_" + id;
+                        const blade = document.createElementNS(ns, "path");
+                        const y = dir === 1 ? -1 : 1;
+                        blade.setAttribute(
+                            "d",
+                            `M0,0 C4,${-3 * y} 22,${-4 * y} 60,${-1 * y} L60,${1 * y} C22,${4 * y} 4,${3 * y} 0,0Z`,
+                        );
+                        blade.setAttribute(
+                            "fill",
+                            `rgba(0,0,0,${opacity * 1.2})`,
+                        );
+                        const ring = document.createElementNS(ns, "circle");
+                        ring.setAttribute("cx", "-6");
+                        ring.setAttribute("cy", "0");
+                        ring.setAttribute("r", "5");
+                        ring.setAttribute("fill", "none");
+                        ring.setAttribute(
+                            "stroke",
+                            `rgba(0,0,0,${opacity * 1.4})`,
+                        );
+                        ring.setAttribute("stroke-width", "1");
+                        b.appendChild(blade);
+                        b.appendChild(ring);
+                        return b;
+                    }
 
-                    const b2 = document.createElementNS(ns, "g");
-                    b2.id = "blade2_" + id;
-                    const blade2 = document.createElementNS(ns, "path");
-                    blade2.setAttribute(
-                        "d",
-                        `M0,0 C4,3 22,4 60,1 L60,-1 C22,-4 4,-3 0,0Z`,
-                    );
-                    blade2.setAttribute(
-                        "fill",
-                        `rgba(255,255,255,${opacity * 1.4})`,
-                    );
-                    const ring2 = document.createElementNS(ns, "circle");
-                    ring2.setAttribute("cx", "-6");
-                    ring2.setAttribute("cy", "0");
-                    ring2.setAttribute("r", "5");
-                    ring2.setAttribute("fill", "none");
-                    ring2.setAttribute(
-                        "stroke",
-                        `rgba(255,255,255,${opacity * 1.6})`,
-                    );
-                    ring2.setAttribute("stroke-width", "1");
-                    b2.appendChild(blade2);
-                    b2.appendChild(ring2);
-
+                    const b1 = makeBlade(1),
+                        b2 = makeBlade(-1);
                     const pivot = document.createElementNS(ns, "circle");
                     pivot.setAttribute("cx", "0");
                     pivot.setAttribute("cy", "0");
                     pivot.setAttribute("r", "2");
-                    pivot.setAttribute(
-                        "fill",
-                        `rgba(255,255,255,${opacity * 2})`,
-                    );
-
+                    pivot.setAttribute("fill", `rgba(0,0,0,${opacity * 2})`);
                     g.appendChild(b2);
                     g.appendChild(b1);
                     g.appendChild(pivot);
 
                     const wrapper = document.createElementNS(ns, "g");
-                    const scale = size / 60;
-                    wrapper.setAttribute("transform", `scale(${scale})`);
+                    wrapper.setAttribute("transform", `scale(${size / 60})`);
                     wrapper.appendChild(g);
                     return { el: wrapper, b1, b2 };
                 }
@@ -822,164 +722,141 @@
                     const ctrl = length * 0.3;
                     strand.setAttribute(
                         "d",
-                        `M0,0 Q${ctrl},${3} ${length},${Math.sin(angle * 0.1) * 4}`,
+                        `M0,0 Q${ctrl},3 ${length},${Math.sin(angle * 0.1) * 4}`,
                     );
                     strand.setAttribute("fill", "none");
-                    strand.setAttribute(
-                        "stroke",
-                        `rgba(255,255,255,${opacity})`,
-                    );
+                    strand.setAttribute("stroke", `rgba(0,0,0,${opacity})`);
                     strand.setAttribute("stroke-width", "1.5");
                     strand.setAttribute("stroke-linecap", "round");
                     g.appendChild(strand);
                     return g;
                 }
 
-                const snipConfigs = [
-                    {
-                        strandX: 120,
-                        strandY: 180,
-                        strandLen: 340,
-                        strandAngle: -3,
-                        size: 52,
-                        opacity: 0.055,
-                        delay: 0,
-                        duration: 9,
-                    },
-                ];
+                const cfg = {
+                    strandX: 120,
+                    strandY: 180,
+                    strandLen: 340,
+                    strandAngle: -3,
+                    size: 52,
+                    opacity: 0.045,
+                    delay: 0,
+                    duration: 9,
+                };
+                const idx = 0;
+                const groupId = "snip_" + idx;
 
-                snipConfigs.forEach((cfg, idx) => {
-                    const groupId = "snip_" + idx;
-                    const strandEl = makeHairStrand(
-                        cfg.strandX,
-                        cfg.strandY,
-                        cfg.strandLen,
-                        cfg.strandAngle,
-                        cfg.opacity * 1.8,
-                    );
-                    scene.appendChild(strandEl);
+                const strandEl = makeHairStrand(
+                    cfg.strandX,
+                    cfg.strandY,
+                    cfg.strandLen,
+                    cfg.strandAngle,
+                    cfg.opacity * 1.6,
+                );
+                scene.appendChild(strandEl);
 
-                    const {
-                        el: scissorEl,
-                        b1,
-                        b2,
-                    } = makeScissors(groupId, cfg.opacity, cfg.size);
-                    const scissorWrapper = document.createElementNS(ns, "g");
-                    scissorWrapper.id = groupId;
+                const {
+                    el: scissorEl,
+                    b1,
+                    b2,
+                } = makeScissors(groupId, cfg.opacity, cfg.size);
+                const scissorWrapper = document.createElementNS(ns, "g");
+                scissorWrapper.id = groupId;
+                scissorWrapper.setAttribute(
+                    "transform",
+                    `translate(${cfg.strandX},${cfg.strandY}) rotate(${cfg.strandAngle})`,
+                );
+                scissorWrapper.appendChild(scissorEl);
+                scene.appendChild(scissorWrapper);
+
+                let startTime = null,
+                    snipped = false;
+                const totalDuration = cfg.duration * 1000;
+                const snipX = cfg.strandLen * 0.5;
+
+                function animateScissors(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const elapsed = timestamp - startTime;
+                    const t = (elapsed % totalDuration) / totalDuration;
+                    const travelT = Math.min(t * 1.6, 1);
+                    const posX = travelT * (cfg.strandLen + 20);
+
                     scissorWrapper.setAttribute(
-                        "transform",
-                        `translate(${cfg.strandX},${cfg.strandY}) rotate(${cfg.strandAngle})`,
+                        "opacity",
+                        t < 0.05
+                            ? t / 0.05
+                            : t > 0.88
+                              ? 1 - (t - 0.88) / 0.12
+                              : 1,
                     );
-                    scissorWrapper.appendChild(scissorEl);
-                    scene.appendChild(scissorWrapper);
+                    scissorEl.setAttribute(
+                        "transform",
+                        `translate(${posX}, 0)`,
+                    );
 
-                    let startTime = null;
-                    const totalDuration = cfg.duration * 1000;
-                    const delayMs = cfg.delay * 1000;
-                    let snipped = false;
-                    let snipX = cfg.strandLen * 0.5;
-                    let fallenStrand = null;
+                    const snipPhase = (travelT * 5) % 1;
+                    const bladeAngle =
+                        snipPhase < 0.5
+                            ? -14 * Math.sin(snipPhase * Math.PI)
+                            : 0;
+                    b1.setAttribute(
+                        "transform",
+                        `rotate(${-bladeAngle}, 0, 0)`,
+                    );
+                    b2.setAttribute("transform", `rotate(${bladeAngle}, 0, 0)`);
 
-                    function animateScissors(timestamp) {
-                        if (!startTime) startTime = timestamp;
-                        const elapsed = timestamp - startTime - delayMs;
-                        if (elapsed < 0) {
-                            requestAnimationFrame(animateScissors);
-                            return;
-                        }
-
-                        const t = (elapsed % totalDuration) / totalDuration;
-                        const travelT = Math.min(t * 1.6, 1);
-                        const posX = travelT * (cfg.strandLen + 20);
-
-                        scissorWrapper.setAttribute(
-                            "opacity",
-                            t < 0.05
-                                ? t / 0.05
-                                : t > 0.88
-                                  ? 1 - (t - 0.88) / 0.12
-                                  : 1,
-                        );
-                        scissorEl.setAttribute(
+                    if (!snipped && posX >= snipX) {
+                        snipped = true;
+                        const radAngle = (cfg.strandAngle * Math.PI) / 180;
+                        const absX = cfg.strandX + snipX * Math.cos(radAngle);
+                        const absY = cfg.strandY + snipX * Math.sin(radAngle);
+                        const fallenStrand = document.createElementNS(ns, "g");
+                        fallenStrand.setAttribute(
                             "transform",
-                            `translate(${posX}, 0)`,
+                            `translate(${absX},${absY})`,
                         );
+                        const piece = document.createElementNS(ns, "path");
+                        piece.setAttribute(
+                            "d",
+                            `M0,0 Q${(cfg.strandLen - snipX) * 0.3},2 ${cfg.strandLen - snipX},3`,
+                        );
+                        piece.setAttribute("fill", "none");
+                        piece.setAttribute(
+                            "stroke",
+                            `rgba(0,0,0,${cfg.opacity * 1.8})`,
+                        );
+                        piece.setAttribute("stroke-width", "1.5");
+                        fallenStrand.appendChild(piece);
+                        scene.appendChild(fallenStrand);
 
-                        const snipPhase = (travelT * 5) % 1;
-                        const bladeAngle =
-                            snipPhase < 0.5
-                                ? -14 * Math.sin(snipPhase * Math.PI)
-                                : 0;
-                        b1.setAttribute(
-                            "transform",
-                            `rotate(${-bladeAngle}, 0, 0)`,
-                        );
-                        b2.setAttribute(
-                            "transform",
-                            `rotate(${bladeAngle}, 0, 0)`,
-                        );
-
-                        if (!snipped && posX >= snipX) {
-                            snipped = true;
-                            fallenStrand = document.createElementNS(ns, "g");
-                            const radAngle = (cfg.strandAngle * Math.PI) / 180;
-                            const absX =
-                                cfg.strandX + snipX * Math.cos(radAngle);
-                            const absY =
-                                cfg.strandY + snipX * Math.sin(radAngle);
+                        let fallStart = null;
+                        function animateFall(ts) {
+                            if (!fallStart) fallStart = ts;
+                            const ft = (ts - fallStart) / 2200;
+                            if (ft >= 1) {
+                                fallenStrand.remove();
+                                return;
+                            }
                             fallenStrand.setAttribute(
                                 "transform",
-                                `translate(${absX},${absY})`,
+                                `translate(${absX + ft * 30},${absY + ft * ft * 180}) rotate(${ft * 40})`,
                             );
-
-                            const piece = document.createElementNS(ns, "path");
-                            piece.setAttribute(
-                                "d",
-                                `M0,0 Q${(cfg.strandLen - snipX) * 0.3},2 ${cfg.strandLen - snipX},3`,
-                            );
-                            piece.setAttribute("fill", "none");
-                            piece.setAttribute(
-                                "stroke",
-                                `rgba(255,255,255,${cfg.opacity * 2})`,
-                            );
-                            piece.setAttribute("stroke-width", "1.5");
-                            fallenStrand.appendChild(piece);
-                            scene.appendChild(fallenStrand);
-
-                            let fallStart = null;
-                            function animateFall(ts) {
-                                if (!fallStart) fallStart = ts;
-                                const ft = (ts - fallStart) / 2200;
-                                if (ft >= 1) {
-                                    fallenStrand.remove();
-                                    return;
-                                }
-                                fallenStrand.setAttribute(
-                                    "transform",
-                                    `translate(${absX + ft * 30},${absY + ft * ft * 180}) rotate(${ft * 40})`,
-                                );
-                                fallenStrand.setAttribute(
-                                    "opacity",
-                                    String(
-                                        Math.max(
-                                            0,
-                                            ft < 0.15
-                                                ? 1
-                                                : 1 - (ft - 0.15) / 0.85,
-                                        ),
+                            fallenStrand.setAttribute(
+                                "opacity",
+                                String(
+                                    Math.max(
+                                        0,
+                                        ft < 0.15 ? 1 : 1 - (ft - 0.15) / 0.85,
                                     ),
-                                );
-                                requestAnimationFrame(animateFall);
-                            }
+                                ),
+                            );
                             requestAnimationFrame(animateFall);
                         }
-
-                        // Reset loop closure logic
-                        if (t > 0.95) snipped = false;
-                        requestAnimationFrame(animateScissors);
+                        requestAnimationFrame(animateFall);
                     }
+                    if (t > 0.95) snipped = false;
                     requestAnimationFrame(animateScissors);
-                });
+                }
+                requestAnimationFrame(animateScissors);
             })();
         </script>
     </body>
